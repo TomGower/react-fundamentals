@@ -21,7 +21,13 @@
     //   children: 'Hello World',
     // })
 
-    const element = <div className="container">Hello JSX World</div>
+    // basic exercise
+    // const element = <div className="container">Hello JSX World</div>
+
+    // extra credit
+    const className = 'container';
+    const content = 'Hello New JSX World';
+    const element = <div className={className}>{content}</div>
 
     // 💰 there are a few subtle differences between JSX and HTML. One such
     // difference is how you apply a class to an element in JSX is by using
@@ -30,6 +36,6 @@
     // https://reactjs.org/docs/dom-elements.html#differences-in-attributes
 
     ReactDOM.render(element, document.getElementById('root'))
-    
+
   </script>
 </body>
