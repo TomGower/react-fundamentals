@@ -21,14 +21,14 @@
     // )
 
     // basic exercise
-    const Message = ({ children }) => <div className="message">{children}</div>
+    // const Message = ({ children }) => <div className="message">{children}</div>
     // const element = (<div>
     //   <Message children="Hello JSX World" />
     //   <Message children="Goodbye JSX World" />
     // </div>);
 
     // extra credit 01
-    const element = React.createElement(Message, {children: 'Hello World'})
+    // const element = React.createElement(Message, {children: 'Hello World'})
     // KCD solution
     // const element = (
     //   <div className="container">
@@ -39,6 +39,25 @@
 
     // extra credit 02
     // I guess I wasn't being quite as formal as he liked with declaration of message as Message
+
+    // extra credit 03
+    const PropTypes = {
+      string(props, propName, componentName) {
+        if (typeof props[propName] !== 'string') {
+          return new Error(`PropType ${propName} is supposed to be a string, but is actually a ${typeof props[propName]}`)
+        }
+      }
+    }
+    const Message = ({ greeting, subject }) => <div className="message">{greeting}, {subject}</div>
+    Message.propTypes = {
+      greeting: PropTypes.string,
+      subject: PropTypes.string,
+    }
+    const element = (
+      <div className="container">
+        <Message greeting="hi" subject={7} />
+      </div>
+    );
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
