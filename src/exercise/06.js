@@ -19,21 +19,26 @@ function UsernameForm({onSubmitUsername}) {
   // 🐨 make sure to associate the label to the input.
   // to do so, set the value of 'htmlFor' prop of the label to the id of input
 
+  const [username, setUsername] = React.useState('');
   const [error, setError] = React.useState(null);
-  // const inputElement = React.useRef();
+  const inputElement = React.useRef();
 
   const handleSubmit = event => {
     event.preventDefault();
-    const inputName = event.target.elements.usernameInput.value;
-    // const inputName = inputElement.current.value;
-    // onSubmitUsername(inputName);
+    // const inputName = event.target.elements.usernameInput.value;
+    const inputName = inputElement.current.value;
     onSubmitUsername(inputName);
   }
   
-  const handleChange = event => {
-    const val = event.target.value;
-    const isValid = val === val.toLowerCase();
-    setError(isValid ? null : 'Username must be lower case');
+  // for extra credit 2
+  // const handleChange = event => {
+  //   const val = event.target.value;
+  //   const isValid = val === val.toLowerCase();
+  //   setError(isValid ? null : 'Username must be lower case');
+  // }
+
+  const handleNameChange = (event) => {
+    setUsername(event.target.value.toLowerCase());
   }
 
   return (
@@ -41,11 +46,12 @@ function UsernameForm({onSubmitUsername}) {
       <div>
         <label htmlFor="usernameInput">Username:</label>
         {/* <input type="text" id="usernameInput" ref={inputElement} onChange={handleChange} /> */}
-        <input type="text" id="usernameInput" onChange={handleChange}></input>
+        {/* <input type="text" id="usernameInput" onChange={handleChange}></input> */}
+        <input type="text" id="usernameInput" value={username} ref={inputElement} onChange={handleNameChange}></input>
       </div>
-      <div role="alert" style={{color: 'red'}}>
+      {/* <div role="alert" style={{color: 'red'}}>
         {error}
-      </div>
+      </div> */}
       <button type="submit" disabled={Boolean(error)}>Submit</button>
     </form>
   )
