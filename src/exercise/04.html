@@ -65,11 +65,16 @@
       greeting: PropTypes.string.isRequired,
       subject: PropTypes.string.isRequired,
     }
-    const element = (
-      <div className="container">
-        <Message greeting="Hello" subject="New JSX World" />
-      </div>
-    )
+    // const element = (
+    //   <div className="container">
+    //     <Message greeting="Hello" subject="New JSX World" />
+    //   </div>
+    // )
+
+    // extra credit 05
+    const element = <React.Fragment>
+        <Message greeting="Goodbye" subject="New JSX World" />
+      </React.Fragment>
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
