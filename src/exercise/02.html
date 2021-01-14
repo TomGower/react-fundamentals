@@ -26,10 +26,27 @@
     // 🐨 Please re-implement the regular document.createElement code above
     // with these React API calls
     // 💰 The example in the markdown file should be a good hint for you.
-    const elementProps = {className: 'container', children: 'Hello World'}
-    const elementType = 'div';
-    const divElement = React.createElement(elementType, elementProps);
 
-    ReactDOM.render(divElement, rootElement);
+    // basic solution
+    // const elementProps = {className: 'container', children: 'Hello World'}
+    // const elementType = 'div';
+    // const divElement = React.createElement(elementType, elementProps);
+
+    // extra credit
+    const hello = React.createElement('span', {children: 'Hello'});
+    const world = React.createElement('span', {children: 'World'});
+    const container = React.createElement('div', {className: 'container', children: [hello, world]});
+
+    // KCD version, which doesn't have the no-spacing problem
+    // const container = React.createElement('div', {
+    //   className: 'container',
+    //   children: [
+    //     React.createElement('span', null, 'Hello'),
+    //     ' ',
+    //     React.createElement('span', null, 'World'),
+    //   ],
+    // });
+
+    ReactDOM.render(container, rootElement);
   </script>
 </body>
