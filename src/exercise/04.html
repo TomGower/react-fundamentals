@@ -21,11 +21,21 @@
     // )
 
     // basic exercise
-    const Message = ({ content }) => <div className="message">{content}</div>
-    const element = (<div>
-      <Message content="Hello JSX World" />
-      <Message content="Goodbye JSX World" />
-    </div>);
+    const Message = ({ children }) => <div className="message">{children}</div>
+    // const element = (<div>
+    //   <Message children="Hello JSX World" />
+    //   <Message children="Goodbye JSX World" />
+    // </div>);
+
+    // extra credit 01
+    const element = React.createElement(Message, {children: 'Hello World'})
+    // KCD solution
+    // const element = (
+    //   <div className="container">
+    //     {React.createElement(message, {children: 'Hello World'})}
+    //     {React.createElement(message, {children: 'Goodbye World'})}
+    //   </div>
+    // )
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
