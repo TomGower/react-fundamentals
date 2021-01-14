@@ -6,6 +6,7 @@
   <script src="https://unpkg.com/react@17.0.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
     // 🐨 Make a function called `message` which returns the JSX we want to share
 
@@ -41,23 +42,34 @@
     // I guess I wasn't being quite as formal as he liked with declaration of message as Message
 
     // extra credit 03
-    const PropTypes = {
-      string(props, propName, componentName) {
-        if (typeof props[propName] !== 'string') {
-          return new Error(`PropType ${propName} is supposed to be a string, but is actually a ${typeof props[propName]}`)
-        }
-      }
-    }
+    // const PropTypes = {
+    //   string(props, propName, componentName) {
+    //     if (typeof props[propName] !== 'string') {
+    //       return new Error(`PropType ${propName} is supposed to be a string, but is actually a ${typeof props[propName]}`)
+    //     }
+    //   }
+    // }
     const Message = ({ greeting, subject }) => <div className="message">{greeting}, {subject}</div>
+    // Message.propTypes = {
+    //   greeting: PropTypes.string,
+    //   subject: PropTypes.string,
+    // }
+    // const element = (
+    //   <div className="container">
+    //     <Message greeting="hi" subject={7} />
+    //   </div>
+    // );
+
+    // extra credit 04
     Message.propTypes = {
-      greeting: PropTypes.string,
-      subject: PropTypes.string,
+      greeting: PropTypes.string.isRequired,
+      subject: PropTypes.string.isRequired,
     }
     const element = (
       <div className="container">
-        <Message greeting="hi" subject={7} />
+        <Message greeting="Hello" subject="New JSX World" />
       </div>
-    );
+    )
 
     // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
     ReactDOM.render(element, document.getElementById('root'))
