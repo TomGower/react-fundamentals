@@ -15,7 +15,8 @@ import '../box-styles.css'
 // const smallBox = <div>small lightblue box</div>
 // const mediumBox = <div>medium pink box</div>
 // const largeBox = <div>large orange box</div>
-// const Box = ({ className, style }) => <div className={`box ${className}`} fontStyle='italic' style={style}></div>
+const Box = ({ size, color }) => 
+  <div className={`box box--${size}`} style={{fontStyle: 'italic', backgroundColor: color}}>{size} {color} box</div>
 
 function App() {
   // return (
@@ -25,11 +26,22 @@ function App() {
   //     {largeBox}
   //   </div>
   // )
+
+  // basic exercise
+  // return (
+  //   <div>
+  //     <div className='box box--small' style={{fontStyle: 'italic', backgroundColor: 'lightblue'}}>small lightblue box</div>
+  //     <div className='box box--medium' style={{fontStyle: 'italic', backgroundColor: 'pink'}}>medium pink box</div>
+  //     <div className='box box--large' style={{fontStyle: 'italic', backgroundColor: 'orange'}}>large orange box</div>
+  //   </div>
+  // )
+
+  // extra credit 1
   return (
     <div>
-      <div className='box box--small' style={{fontStyle: 'italic', backgroundColor: 'lightblue'}}>small lightblue box</div>
-      <div className='box box--medium' style={{fontStyle: 'italic', backgroundColor: 'pink'}}>medium pink box</div>
-      <div className='box box--large' style={{fontStyle: 'italic', backgroundColor: 'orange'}}>large orange box</div>
+      <Box size="small" color="lightblue" />
+      <Box size="medium" color="pink" />
+      <Box size="large" color="orange" />
     </div>
   )
 }
