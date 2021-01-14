@@ -16,14 +16,23 @@
 <!--   📜 https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/append -->
 
 <body>
-  <div id="root"></div>
+  <!-- <div id="root"></div> -->
 </body>
 
 <script type="module">
   // basic assignment
-  const rootElement = document.getElementById('root');
-  const helloWorld = document.createElement('div');
-  helloWorld.textContent = 'Hello World';
-  helloWorld.className = 'container';
-  rootElement.append(helloWorld);
+  // const rootElement = document.getElementById('root');
+  // const helloWorld = document.createElement('div');
+  // helloWorld.textContent = 'Hello World';
+  // helloWorld.className = 'container';
+  // rootElement.append(helloWorld);
+
+  // extra credit
+  const rootElement = document.createElement('div');
+  rootElement.id = 'root';
+  const divElement = document.createElement('div');
+  divElement.textContent = 'Hello World';
+  divElement.className = 'container';
+  rootElement.append(divElement);
+  document.body.append(rootElement);
 </script>
